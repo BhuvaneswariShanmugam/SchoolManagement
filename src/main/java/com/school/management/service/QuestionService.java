@@ -19,6 +19,8 @@ public class QuestionService {
 	
 	@Autowired
 	private ResponseDTO responseDto;
+	
+	
 
 	public ResponseDTO createQuestion(Question question) {
 		responseDto.setMessage(Constants.CREATED);
@@ -79,6 +81,9 @@ public class QuestionService {
 		 responseDto.setStatusCode(200);
 		 return responseDto;
 	}
+
+
+	
 	
 	
 

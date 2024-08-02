@@ -24,7 +24,7 @@ public class QuestionController {
 	private QuestionService questionService;
 	
 	
-	@PostMapping("/")
+	@PostMapping("/create-question")
 	public ResponseDTO createQuestion(@RequestBody Question question) {
 		return questionService.createQuestion(question);
 
@@ -32,26 +32,29 @@ public class QuestionController {
 
 	
 	// getAllQuestionWithAnswer
-	@GetMapping("/")
+	@GetMapping("/all-question")
 	public ResponseDTO getAllQuestion(){
 		return questionService.getAllQuestion();
 	}
 	
-	//getAllQuestionOnleBySubjectId
-	@GetMapping("/{subjectId}")
+	
+	
+	
+	//getAllQuestionOnlyBySubjectId
+	@GetMapping("/questionOnly-by-subject/{subjectId}")
 	public ResponseDTO getAllQuestionOnly(@PathVariable Long subjectId){
 		return questionService.getAllQuestionOnly(subjectId);
 	}
 	
 	
-	@PutMapping("/{id}")
+	@PutMapping("/updare-question/{id}")
 	public ResponseDTO updateQuestion(@PathVariable Long id,@RequestBody Question question) {
 		return questionService.updateQuestion(id,question);
 		
 	}
 	
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/remove-question/{id}")
 	public ResponseDTO dropQuestion(@PathVariable Long id) {
 		 return 
 				 questionService.dropQuestion(id);

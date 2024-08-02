@@ -23,7 +23,7 @@ public class TeacherController {
 	private TeacherService teacherService;
 	
 	
-	@PostMapping("/")
+	@PostMapping("/create-teacher")
 	public ResponseDTO createTeacher(@RequestBody Teacher teacher) {
 		return teacherService.createTeacher(teacher);
 		
@@ -31,35 +31,42 @@ public class TeacherController {
 	
 	
 	//get all teacher
-	@GetMapping("/")
+	@GetMapping("/all-teacher")
 	public ResponseDTO getAllTeacher(){
 		return teacherService.getAllTeacher();
 	}
 	
 	
 	//get teacher by teacherId
-	@GetMapping("/{id}")
+	@GetMapping("teacher-by/{id}")
 	public ResponseDTO getTeacherById(@PathVariable long id) {
 		return teacherService.getTeacherById(id);
 	}
 
 	
 	//get All teacherBy schoolID
-	@GetMapping("/all/{schoolId}")
+	@GetMapping("/all-teacher-by-school/{schoolId}")
 	public ResponseDTO getAllTeacherBySChool(@PathVariable Long schoolId){
 		return teacherService.getAllTeacherBySchool(schoolId);
 	}
 	
-	@PutMapping("/{id}")
+	@PutMapping("/update-teacher/{id}")
 	public ResponseDTO updateTeacher(@PathVariable long id,@RequestBody Teacher teacher) {
 		return teacherService.updateTeacher(id,teacher);
 		
 	}
 	
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/remove-teacher/{id}")
 	public ResponseDTO dropTeacher(@PathVariable long id) {
 	     return teacherService.dropTeacher(id);
-		
 	}
+	
+//	  @GetMapping("/search")
+//	    public ResponseDTO searchTeachers(@RequestParam String name, @RequestParam int page, @RequestParam int size) {
+//	        return teacherService.searchTeachers(name, page, size);
+//	    }
+//	
 }
+
+

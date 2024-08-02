@@ -23,24 +23,24 @@ public class SubjectController {
 	
 	
 	
-	@PostMapping("/")
+	@PostMapping("/create-subject")
 	public ResponseDTO createSubject(@RequestBody Subject subject) {
 		 return subjectService.createSubject(subject);
 		 
 	}
 
-	@GetMapping("/")
+	@GetMapping("/all-subject")
 	public ResponseDTO getAllSubject(){
 		return subjectService.getAllSubject();
 	}
 	
-	@PutMapping("/{id}")
+	@PutMapping("/update-subject/{id}")
 	public ResponseDTO updateSubject(@PathVariable Long id,@RequestBody Subject subject) {
 		return subjectService.updateSubject(id,subject);
 		
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/remove-subject/{id}")
 	public ResponseDTO dropSubject(@PathVariable Long  id) {
 		return subjectService.dropSubject(id);
 	}

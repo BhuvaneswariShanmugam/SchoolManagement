@@ -23,35 +23,36 @@ public class StudentController {
 	@Autowired
 	private StudentService studentService;
 	
-	@Autowired StudentRepository studentRepo;
+	@Autowired 
+	private StudentRepository studentRepo;
 	
-	@PostMapping("/")
+	@PostMapping("/create-student")
 	public ResponseDTO createStudent(@RequestBody Student student) {
 		return studentService.createStudent(student);
 		
 	}
 	
 	
-	@GetMapping("/")
+	@GetMapping("/all-student")
 	public ResponseDTO getAllStudent(){
 		return studentService.getAllStudent();
 	}
 	
 	
-	@GetMapping("/{standard}")
+	@GetMapping("/student-by-std/{standard}")
 	public ResponseDTO getAllStudentByStandard(@PathVariable String standard) {
 		return studentService.getAllStudentByStandard(standard);
 	}
 	
 	
-	@PutMapping("/{id}")
+	@PutMapping("/update-student/{id}")
 	public ResponseDTO updateStudent(@PathVariable Long id,@RequestBody Student student)
 	{
 		return studentService.updateStudent(id,student);
 		
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/remove-student/{id}")
 	public ResponseDTO dropStudent(@PathVariable Long id) {
 		return studentService.dropStudent(id);
 		

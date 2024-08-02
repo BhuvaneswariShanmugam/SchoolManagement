@@ -76,4 +76,16 @@ public class TeacherService {
 		
 	}
 
+
+
+//    public ResponseDTO searchTeachers(String name, int page, int size) {
+//        PageRequest pageable = PageRequest.of(page, size);
+//        Page<Teacher> teachers=teacherRepo.findByNameContaining(name,pageable,Sort.by(Sort.Direction.ASC));
+//        responseDto.setMessage(Constants.RETRIEVED);
+//		responseDto.setData(teachers);
+//		responseDto.setStatusCode(200);
+//		return responseDto;
+//    }
+
+	
 }

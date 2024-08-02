@@ -1,5 +1,8 @@
 package com.school.management.entity;
+import com.school.management.enums.Role;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -11,15 +14,24 @@ import lombok.Data;
 @Entity
 @Table(name="teacher")
 @Data
-public class Teacher {
+public class Teacher{
 	
+	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
 	private String name;
 	
+	private String emailId;
+	
+	private String password;
+	
 	private Long salary;
+	
+	@Enumerated(EnumType.STRING)
+	private Role role;
 	
 	
 	@OneToOne
@@ -29,7 +41,7 @@ public class Teacher {
 	@ManyToOne
 	private School school;
 
-
+	
 	
 	
 }

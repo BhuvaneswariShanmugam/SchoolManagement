@@ -21,31 +21,31 @@ public class SchoolController {
 	@Autowired
 	private SchoolService schoolService;
 	
-	@PostMapping("/")
+	@PostMapping("/create-school")
 	public ResponseDTO createSchool(@RequestBody School school) {
 		return schoolService.createSchool(school);
 		
 	}
 	
-	@GetMapping("/")
+	@GetMapping("/all-school")
 	public ResponseDTO  getAllSchool(){
 		return schoolService.getAllSchool();
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/school-by/{id}")
 	public ResponseDTO getSchoolById(@PathVariable Long id) {
 		return schoolService.getSchoolById(id);
 	}
 	
 	
 	
-	@PutMapping("/{id}")
+	@PutMapping("/update-school/{id}")
 	public ResponseDTO updateSchool(@PathVariable Long id,@RequestBody School school) {
 		return schoolService.updateSchool(id,school);
 		
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/remove-school/{id}")
 	public ResponseDTO dropSchool(@PathVariable Long id) {
 		return schoolService.dropSchool(id);
 		
