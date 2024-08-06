@@ -1,6 +1,10 @@
 package com.school.management.entity;
 
+import com.school.management.enums.Role;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -31,6 +35,9 @@ public class Admin   {
 	
 	@OneToOne
 	private User userId;
+	
+	@Enumerated(EnumType.STRING)
+	private Role role;
 
 	
 }

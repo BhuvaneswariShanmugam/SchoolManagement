@@ -42,16 +42,11 @@ public class AuthenticationConfiguration {
             .authorizeHttpRequests(request -> request              
                     
                     .requestMatchers("/api/v1/auth/**").permitAll()
-                    .requestMatchers("/admin/**").hasRole("ADMIN")
+                    .requestMatchers("/admin/**").hasAuthority("ADMIN")
                     .requestMatchers("/student/**").hasAnyAuthority("STUDENT", "TEACHER","ADMIN")
                     .requestMatchers("/teacher/**").hasAnyAuthority("TEACHER","ADMIN")
-                    .requestMatchers("/question/**").hasAnyAuthority("TEACHER")
-                    .requestMatchers("/answer/**").hasRole("TEACHER")
-                    .requestMatchers("/question/questionOnly-by-subject/**").hasRole("STUDENT")
-                    .requestMatchers("/answerBy-student/**").hasRole("STUDENT")
-                    .requestMatchers("/answerBy-studentAndSubject/**").hasRole("STUDENT")
-                    .requestMatchers("/subject-mark/**").hasRole("STUDENT")
-                    .requestMatchers("/total-mark/**").hasRole("STUDENT")
+                    .requestMatchers("/question/**").hasAuthority("TEACHER")
+                    .requestMatchers("/answer/**").hasAnyAuthority("TEACHER","STUDENT")
                     .requestMatchers("/subject/**").hasAnyAuthority("ADMIN", "TEACHER")
                     .anyRequest().authenticated())     
             

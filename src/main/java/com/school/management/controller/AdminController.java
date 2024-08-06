@@ -31,7 +31,7 @@ public class AdminController {
 	}
 	
 	@GetMapping("/get-admin/{id}")
-	public ResponseDTO getAllAdmin(@PathVariable Long id) {
-		return adminService.getAllAdmin(id);
+	public ResponseDTO getAdminById(@PathVariable Long id) {
+		return adminService.getAdminById(id);
 	}
 }

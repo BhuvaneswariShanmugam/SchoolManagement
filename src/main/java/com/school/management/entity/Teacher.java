@@ -26,9 +26,10 @@ public class Teacher{
 	
 	private String emailId;
 	
-	private String password;
-	
 	private Long salary;
+	
+	@OneToOne
+	private User userId;
 	
 	@Enumerated(EnumType.STRING)
 	private Role role;

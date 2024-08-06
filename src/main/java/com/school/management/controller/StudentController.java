@@ -2,6 +2,7 @@ package com.school.management.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.school.management.dto.ResponseDTO;
 import com.school.management.entity.Student;
-import com.school.management.repository.StudentRepository;
 import com.school.management.service.StudentService;
 
 
@@ -23,8 +23,7 @@ public class StudentController {
 	@Autowired
 	private StudentService studentService;
 	
-	@Autowired 
-	private StudentRepository studentRepo;
+	
 	
 	@PostMapping("/create-student")
 	public ResponseDTO createStudent(@RequestBody Student student) {
@@ -58,6 +57,16 @@ public class StudentController {
 		
 	}
 	
-	
+	//pagination
+	@GetMapping("/page/{page}/{size}")
+	public Page<Student> getStudentByPage(Student student,@PathVariable int  page ,@PathVariable int size) {
+		return studentService.getStudentByPage(page,size);
+	}
+			                                 
+	//searching
+	@GetMapping("/search/{keyword}")
+	public  ResponseDTO SearchStudent(@PathVariable String keyword) {
+		return studentService.SearchStudent(keyword);
+	}
 
 }

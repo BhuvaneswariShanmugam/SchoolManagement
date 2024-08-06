@@ -22,7 +22,7 @@ public class AdminService {
 		return responseDto;
 		}
 
-	public ResponseDTO getAllAdmin(Long id) {
+	public ResponseDTO getAdminById(Long id) {
 		ResponseDTO responseDto=new ResponseDTO();
 		responseDto.setMessage(Constants.CREATED);
 		responseDto.setData(adminRepo.findById(id));

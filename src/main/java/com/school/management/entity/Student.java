@@ -10,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -25,9 +26,11 @@ public class Student {
 	private Long id;
 	private String name;
 	private String emailId;
-	private String password;
 	private String standard;
 	private Long fee;
+	
+	@OneToOne
+	private User userId;
 	
 	@Enumerated(EnumType.STRING)
 	private Role role;
